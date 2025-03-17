@@ -1,0 +1,5 @@
+bill = float(input("Total bill?\n"))
+tip = float(input("Tip amount ?\n"))
+Members = float(input("How many pupil?\n"))
+bill_per_head = float((bill + tip) / Members)
+print(round(bill_per_head, 2))

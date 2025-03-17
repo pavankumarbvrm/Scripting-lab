@@ -1,0 +1,29 @@
+To list all the enabled services on a Red Hat Linux system, you can use the systemctl command. Here's how:
+
+1. List All Enabled Services
+    systemctl list-unit-files --type=service | grep enabled
+    This command displays all services and their states, filtering only the ones marked as enabled.
+
+2. (Optional) List Currently Active Services
+If you want to see the services that are actively running:
+
+    systemctl list-units --type=service --state=running
+Explanation
+    list-unit-files: Shows all unit files and their states (enabled, disabled, etc.).
+    grep enabled: Filters to display only the enabled services.
+
+
+
+1. Locate the Unit File
+    Use the systemctl command to find where the unit file for shinyproxy.service is located:
+
+    systemctl show shinyproxy.service -p FragmentPath
+    This command will display the full path to the unit file (e.g., /etc/systemd/system/shinyproxy.service).
+3. Check the Status
+    You can also check the status of the service to ensure it's running correctly:
+
+    systemctl status shinyproxy.service
+4. Validate the Unit File
+    To ensure the shinyproxy.service unit file has no syntax errors:
+
+    systemctl daemon-reload    
